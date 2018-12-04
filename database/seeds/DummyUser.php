@@ -13,7 +13,6 @@ class DummyUser extends Seeder
     public function run()
     {
         $user = new User;
-        $user->name = 'Dummy User';
         $user->email = 'admin@example.com';
         $user->password = bcrypt('password');
         $user->save();

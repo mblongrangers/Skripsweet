@@ -1,4 +1,4 @@
-@extends('vendor.backpack.base.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">

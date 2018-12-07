@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('home', 'HomeController@index')->name('home');
-Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
-Route::patch('updateinfo', 'AccountController@updateInfo')->name('account.updateinfo');
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
+	Route::get('home', 'HomeController@index')->name('home');
+	Route::resource('account', 'AccountController');
+});

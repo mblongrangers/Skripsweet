@@ -20,9 +20,14 @@
                 <div class="box-header with-border">
                     <div class="box-title">{{ trans('backpack::base.login_status') }}</div>
                 </div>
+<<<<<<< HEAD
                 <div class="box-body">
                   <p>You are currently login as {{ backpack_user()->loginAs() }}</p>
                 </div>
+=======
+
+                <div class="box-body">{{ trans('backpack::base.logged_in') }}</div>
+>>>>>>> c28ff1e2b1d075a0f5281dd0cfa77252a1101526
             </div>
         </div>
     </div>

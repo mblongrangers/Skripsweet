@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/catalogue', function () {
+    return view('homepage.catalogue');
+})->name('catalogue');
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('homepage.home');
+})->name('index');
 
 Auth::routes();
 

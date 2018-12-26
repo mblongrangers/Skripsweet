@@ -17,7 +17,7 @@ class DummyUser extends Seeder
         $user->password = bcrypt('password');
         $user->role_id = 1;
         $user->save();
-
+    
         $user = new User;
         $user->email = 'dirop@example.com';
         $user->password = bcrypt('password');

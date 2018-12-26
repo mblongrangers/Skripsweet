@@ -5,7 +5,7 @@
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../../../favicon.ico"> -->
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>PT Anugrah Distributor Indonesia</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">

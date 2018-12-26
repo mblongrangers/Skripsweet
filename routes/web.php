@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/tutorial', function () {
+    return view('homepage.tutorial');
+})->name('tutorial');
+
 Route::get('/catalogue', function () {
     return view('homepage.catalogue');
 })->name('catalogue');
@@ -21,10 +25,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
+	Route::get('admin', '');
 	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
 	Route::get('home', 'HomeController@index')->name('home');
 	Route::resource('account', 'AccountController');
-});
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
 Route::patch('updateinfo', 'AccountController@updateInfo')->name('account.updateinfo');
+
+});

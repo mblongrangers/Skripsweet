@@ -1,19 +1,18 @@
 a.navbar-brand {
+	margin-left: 30px;
 	font-family: 'Oswald', sans-serif;
 }
 
 a.nav-link {
-	font-family: 'Oswald', sans-serif;
-}
-
-div.card {
-	margin-top: 50px;
+	margin-left: 50px;
+	margin-top: 40px;
+	font-family: "Times New Roman", Times, serif;
 }
 
 .auth {
-	margin-left: 600px;
-	margin-top: 8px;
-	font-family: 'Oswald', sans-serif;
+	margin-left: 300px;
+	margin-top: 10px;
+	font-family: 'Arial Verdana', sans-serif;
 }
 
 a.login {
@@ -38,9 +37,15 @@ a.register {
 }
 
 .footer {
-	margin-top: 200px;
+	margin-top: 50px;
 }
 
 h1 {
 	margin-top: 100px;
+}
+/*nav.navbar {
+    background-color: #c51122;
+}*/
+div.card {
+	margin-top: 100px;	
 }

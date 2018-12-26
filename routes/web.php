@@ -25,7 +25,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('admin', '');
 	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
 	Route::get('home', 'HomeController@index')->name('home');
 	Route::resource('account', 'AccountController');

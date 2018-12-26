@@ -1,7 +1,7 @@
-@extends('main')
+@extends('layouts.customer')
 
 @section('content')
-<div class="container">
+<div class="container head-spacer">
 <br>
 	<div class="card-deck">
 	  <div class="card" >
@@ -23,8 +23,17 @@
 	  <div class="card">
 	    <img class="card-img-top" src="{{asset('images/super penetrant.jpg')}}" alt="Card image cap">
 	    <div class="card-body">
-	      	<h5 class="card-title"><font face="arial"><b>Drain Max</font></h5></b>
+	      	<h5 class="card-title"><font face="arial"><b>Super Penetrant</font></h5></b>
 	      	<p class="card-text"style="text-align: justify;">Merupakan bahan pembersih / penghilang karat pada permukaan besi/logam lainnya. Membantu membuka baut & mur yang macet karena karat yang berlebihan. Membersihkan karat pada gembok, menghilangkan karat pada rantai, bearing, kunci gembok dan perkakas yg lain</p>
+	      	<button type="button" class="btn btn-primary">Pesan</button>
+	    </div>
+		</div>
+		<div class="card">
+	    <img class="card-img-top" src="{{asset('images/paint remover.jpg')}}" alt="Card image cap">
+	    <div class="card-body">
+	      	<h5 class="card-title"><font face="arial"><b>Paint Remover</font></h5></b>
+	      	<p class="card-text"style="text-align: justify;">Merupakan pembersih cat khusus terdiri dari pelarut aktif yang dikombinasikan dengan lilin. Produk ini dapat digunakan untuk membersihkan segala jenis cat termasuk synthetic enamel, polytur baking paint, ducco, melamin dan berbagai jenis cat lainnya.Manfaat produk ini antara lain: efisien, tidak merusak permukaan objek dan tidak menimbulkan risiko kebakaran.
+						</p>
 	      	<button type="button" class="btn btn-primary">Pesan</button>
 	    </div>
 	  </div>

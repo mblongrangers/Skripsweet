@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.customer')
 
 @section('content')
     <main role="main">

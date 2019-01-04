@@ -6,4 +6,5 @@ Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () {
     CRUD::resource('product', 'ProductCrudController');
+    CRUD::resource('user', 'UserCrudController');
 });

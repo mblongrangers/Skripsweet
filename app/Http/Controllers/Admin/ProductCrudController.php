@@ -27,7 +27,7 @@ class ProductCrudController extends CrudController
             'name' => "image",
             'type' => 'image',
             'upload' => true,
-            'crop' => true,
+            'crop' => false,
             'aspect_ratio' => 1
         ]);
 

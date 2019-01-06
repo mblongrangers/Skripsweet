@@ -14,9 +14,7 @@ Route::get('/tutorial', function () {
     return view('homepage.tutorial');
 })->name('tutorial');
 
-Route::get('/catalogue', function () {
-    return view('homepage.catalogue');
-})->name('catalogue');
+Route::get('/catalogue', 'GuestController@catalogue')->name('catalogue');
 
 Route::get('/', function () {
     return view('homepage.home');
@@ -28,8 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
 	Route::get('home', 'HomeController@index')->name('home');
 	Route::resource('account', 'AccountController');
-Route::get('home', 'HomeController@index')->name('home');
-Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
-Route::patch('updateinfo', 'AccountController@updateInfo')->name('account.updateinfo');
-
+	Route::get('home', 'HomeController@index')->name('home');
+	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
+	Route::patch('updateinfo', 'AccountController@updateInfo')->name('account.updateinfo');
+	Route::patch('update-account', 'AccountController@updateAccount')->name('account.update-account');
 });

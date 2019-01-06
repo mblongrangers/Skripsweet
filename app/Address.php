@@ -9,7 +9,8 @@ class Address extends Model
 	protected $fillable = [
 		'name',
 		'address',
-		'phone'
+		'phone',
+		'customer_id'
 	];
     public function customer()
     {

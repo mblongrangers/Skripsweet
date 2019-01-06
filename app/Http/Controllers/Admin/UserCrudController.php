@@ -34,21 +34,6 @@ class UserCrudController extends CrudController
         | CrudPanel Configuration
         |--------------------------------------------------------------------------
         */
-        $this->crud->addField([
-            'label' => "Photos",
-            'name' => "image",
-            'type' => 'image',
-            'upload' => true,
-            'crop' => true,
-            'aspect_ratio' => 1
-        ]);
-
-        $this->crud->addColumn([
-            'name' => 'image',
-            'label' => "Photos",
-            'type' => 'image',
-            'prefix' => 'storage/'
-         ]);
 
         $this->crud->removeColumn('password');
         $this->crud->addField([

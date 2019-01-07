@@ -30,4 +30,5 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
 	Route::patch('updateinfo', 'AccountController@updateInfo')->name('account.updateinfo');
 	Route::patch('update-account', 'AccountController@updateAccount')->name('account.update-account');
+	Route::post('add-to-cart', 'ChartController@addToCart')->name('add-to-cart');
 });

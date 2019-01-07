@@ -9,5 +9,6 @@
 
 		@include('partials._footer')
 		@include('partials._javascript')
+	    @stack('js')
 	</body>
 </html>

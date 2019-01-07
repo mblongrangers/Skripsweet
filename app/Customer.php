@@ -19,4 +19,9 @@ class Customer extends Model
     {
     	return $this->hasMany(Address::class);
     }
+
+    public function cart()
+    {
+        return $this->hasOne(Cart::class);
+    }
 }

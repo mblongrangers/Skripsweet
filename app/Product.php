@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function getPriceAttribute($value)
+    public function carts()
     {
-    	return 'Rp. ' . number_format($value);
+    	return $this->belongsToMany(Cart::class);
     }
 }

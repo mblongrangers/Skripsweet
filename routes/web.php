@@ -14,6 +14,10 @@ Route::get('/tutorial', function () {
     return view('homepage.tutorial');
 })->name('tutorial');
 
+Route::get('/about', function () {
+    return view('homepage.about');
+})->name('about');
+
 Route::get('/catalogue', 'GuestController@catalogue')->name('catalogue');
 
 Route::get('/', function () {

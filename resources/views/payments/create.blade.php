@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 p-b-30">
-                <form method="POST" action="{{ route('payment.store') }}">
+                <form method="POST" action="{{ route('orders.store') }}">
                     @csrf
                     <h4 class="m-text26 p-b-36 p-t-15">
                         Payment

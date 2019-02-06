@@ -55,7 +55,14 @@
                             <img src="{{ asset('images/icon-header-01.png') }} " class="header-icon1 js-show-header" alt="ICON" >
                         </a>
                     </div>
-
+                    
+                    <span class="linedivide1"></span>
+                    <div class="header-wrapicon2">
+                        <a href="{{ route('orders.index') }}">
+                            <img src="{{ asset('images/icon-header-03.png') }} " class="header-icon1 js-show-header" alt="ICON" >
+                        </a>
+                    </div>
+                    
                     <span class="linedivide1"></span>
 
                     <div class="header-wrapicon2">

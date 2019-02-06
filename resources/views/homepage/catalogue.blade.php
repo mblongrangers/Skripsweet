@@ -3,13 +3,7 @@
 @section('content')
 <!-- Title Page -->
 <!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/heading-pages-02.jpg);">
-		<h2 class="l-text2 t-center">
-			Women
-		</h2>
-		<p class="m-text13 t-center">
-			New Arrivals Women Collection 2018
-		</p>
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({{ asset('images/banner.png') }});">
 	</section>
 
 	<!-- Content page -->
@@ -26,31 +20,19 @@
 						<ul class="p-b-54">
 							<li class="p-t-4">
 								<a href="#" class="s-text13 active1">
-									All
+									Lubricant
 								</a>
 							</li>
 
 							<li class="p-t-4">
 								<a href="#" class="s-text13">
-									Women
+									Spray Paint
 								</a>
 							</li>
 
 							<li class="p-t-4">
 								<a href="#" class="s-text13">
-									Men
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Kids
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Accesories
+									Home Care
 								</a>
 							</li>
 						</ul>
@@ -78,7 +60,7 @@
 								</div>
 
 								<div class="s-text3 p-t-10 p-b-10">
-									Range: $<span id="value-lower">610</span> - $<span id="value-upper">980</span>
+									Range: Rp<span id="value-lower">10000</span> - Rp<span id="value-upper">30000</span>
 								</div>
 							</div>
 						</div>

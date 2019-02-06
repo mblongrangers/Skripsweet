@@ -55,7 +55,9 @@
 				</div>
 			</div>
 			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-				<form action="">
+				<form action="{{ route('orders.store') }}" method="post">
+					@csrf
+					<input type="hidden" value="{{ Auth::user()->customer->cart->id }}" name="customer_id">
 					<h5 class="m-text20 p-b-24">
 						Cart Totals
 					</h5>
@@ -78,7 +80,7 @@
 
 						<div class="w-size20 w-full-sm">
 							<div class="rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12">
-								<select class="sizefull s-text7 p-l-15 p-r-15" name="address" id="address">
+								<select class="sizefull s-text7 p-l-15 p-r-15" name="address_id" id="address">
 									<option value="0">Select an address</option>
 									@foreach (Auth::user()->customer->addresses as $address)
 										<option value="{{ $address->id }}">{{ $address->name }}</option>

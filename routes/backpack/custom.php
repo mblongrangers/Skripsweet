@@ -7,4 +7,5 @@ Route::group([
 ], function () {
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('user', 'UserCrudController');
+    CRUD::resource('order', 'OrderCrudController');
 });

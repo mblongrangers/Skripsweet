@@ -12,7 +12,8 @@ class Payment extends Model
 		'cart_id',
 		'customer_id',
 		'user_id',
-		'cart_id'
+		'cart_id',
+		'address_id'
 	];
 
 	public function customer()

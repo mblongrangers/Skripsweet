@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Address;
 use Auth;
 use Alert;
 
@@ -23,9 +24,13 @@ class AccountController extends Controller
         return redirect()->back();
     }
 
-    public function myAccount()
+    public function myAccount($id = null)
     {
-        return view('account.my-account');
+        $current = null;
+        if (!is_null($id)) {
+            $current = Address::find($id);
+        }
+        return view('account.my-account', compact('current'));
     }
 
     public function updateAccount(Request $request)
@@ -43,6 +48,44 @@ class AccountController extends Controller
                 'phone' => $request->phone
             ]);
         }
+            return redirect()->back();
+    }
+
+    public function addAddress(Request $request)
+    {
+        $customer = Auth::user()->customer;
+        $address = Address::create([
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'customer_id' => $customer->id
+        ]);
+        return redirect()->back();
+    }
+
+    public function deleteAddress($id)
+    {
+        $address = Address::find($id)->delete();
+        return redirect()->back();
+    }
+
+    public function updateAddress(Request $request, $id)
+    {
+        $address = Address::find($id);
+        $address->update([
+            'name' => $request->name,
+            'address' => $request->address,
+            'phone' => $request->phone
+        ]);
+        return redirect()->route('account.my-account');
+    }
+
+    public function updateCustomer(Request $request)
+    {
+        Auth::user()->customer->update([
+            'name'=> $request->name
+        ]);
+        
             return redirect()->back();
     }
 }

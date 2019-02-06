@@ -1,62 +1,147 @@
 @extends('layouts.customer')
 @section('content')
-<div class="container head-spacer">
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="box box-success">
-                <div class="box-body">
+<!-- content page -->
+<section class="bgwhite p-t-66 p-b-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-b-30">
+                <div class="p-r-20 p-r-0-lg">
                     <p class="lead">My Account</p>
-                    <p>{{ Auth::user()->customer->name }}</p>
-                    <p>{{ Auth::user()->customer->addresses->first()->name }}</p>
-                    <p>{{ Auth::user()->customer->addresses->first()->address }}</p>
-                    <p>{{ Auth::user()->customer->addresses->first()->phone }}</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Name : <strong>{{ Auth::user()->customer->name }}</strong></p>
+                            <p>Email : <strong>{{ Auth::user()->email }}</strong></p>
+                        </div>
+                    </div>
+                    </hr>
+                </div>
+
+                <div class="p-r-20 p-r-0-lg">
+                    <p class="lead">My Address</p>
+                    <hr>
+                    <div class="row">
+                        @forelse (Auth::user()->customer->addresses as $address)
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <p>
+                                        <strong>{{ $address->name }}</strong>
+                                    </p>
+                                    <p>
+                                        <small>{{ $address->address }}</small>
+                                    </p>
+                                    <p class="text-info">
+                                        <small>{{ $address->phone }}</small>
+                                    </p>
+                                </div>
+                                <div class="col-md-2">
+                                    <a href="{{ route('account.my-account', $address->id) }}" class="btn btn-info btn-sm btn-link">
+                                        <span class="fa fa-edit text-info"></span>
+                                    </a>
+                                    <form method="post" action="{{ route('address.delete', $address->id) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-link">
+                                            <span class="fa fa-trash text-danger"></span>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        @empty
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Address Empty<p>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        @endforelse
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
-            <div class="box box-default">
-                <div class="box-header">{{ __('MyAccount') }}</div>
 
-                <div class="box-body">
-                    <form method="POST" action="{{ route('account.update-account') }}">
-                        @csrf
-                        @method('PATCH')
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama') }}</label>
+            <div class="col-md-6 p-b-30">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="POST" action="{{ route('customer.update', Auth::user()->customer->id) }}">
+                            @csrf
+                            @method('PATCH')
+                            <h4 class="m-text26 p-b-36 p-t-15">
+                                Update MyAccount 
+                            </h4>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                name="name"
-                                value="{{ is_null(Auth::user()->customer->addresses->first()) ? old('name') : Auth::user()->customer->addresses->first()->name }}" required>
+                            <div class="bo4 of-hidden size15 m-b-20">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required minlength="3" maxlength="15" placeholder="Your Name" value="{{ !is_null($current) ? $current->name : ''}}">
                             </div>
-                            </div>
+                            @if ($errors->has('name'))
+                                <div class="alert alert-danger">
+                                    <small>{{ $errors->has('name') ? ' is-invalid' : '' }}</small>
+                                </div>
+                            @endif
 
-                            <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Alamat') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ is_null(Auth::user()->customer->addresses->first()) ? old('name') : Auth::user()->customer->addresses->first()->address }}" required>
-                            </div>
-                            </div>
-
-                            <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('No.Hp') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="phone" value="{{ is_null(Auth::user()->customer->addresses->first()) ? old('name') : Auth::user()->customer->addresses->first()->phone }}" required>
-                            </div>
-                            </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Simpan MyAccount') }}
+                            <div class="w-size25">
+                                <button type="submit" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+                                    {{ !isset($address) ? 'Save' : 'Update' }}
                                 </button>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
+                    <div class="col-md-12"><hr></div>
+
+                    <div class="col-md-12">
+                        <form method="POST" action="{{ is_null($current) ? route('address.add') : route('address.update', $current->id) }}">
+                            @csrf
+
+                            @if (!is_null($current))
+                                @method('PATCH')
+                            @endif
+
+                            <h4 class="m-text26 p-b-36 p-t-15">
+                                Update Info 
+                            </h4>
+
+                            <div class="bo4 of-hidden size15 m-b-20">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required minlength="3" maxlength="15" placeholder="Your Address Name" value="{{ !is_null($current) ? $current->name : ''}}">
+                            </div>
+                            @if ($errors->has('name'))
+                                <div class="alert alert-danger">
+                                    <small>{{ $errors->has('name') ? ' is-invalid' : '' }}</small>
+                                </div>
+                            @endif
+
+                            <div class="bo4 of-hidden size15 m-b-20">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" required placeholder="Your Address" value="{{ !is_null($current) ? $current->address : ''}}" >
+                            </div>
+                            @if ($errors->has('address'))
+                                <div class="alert alert-danger">
+                                    <small>{{ $errors->first('address') ? ' is-invalid' : ''}}</small>
+                                </div>
+                            @endif
+
+                            <div class="bo4 of-hidden size15 m-b-20">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22" {{ $errors->has('phone') ? ' is-invalid' : '' }} name="phone" required placeholder="Your Phone" value="{{ !is_null($current) ? $current->phone : ''}}">
+                            </div>
+                            @if ($errors->has('phone'))
+                                <div class="alert alert-danger">
+                                    <small>{{ $errors->first('phone') }}</small>
+                                </div>
+                            @endif
+
+                            <div class="w-size25">
+                                <button type="submit" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
+                                    {{ !isset($address) ? 'Save' : 'Update' }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

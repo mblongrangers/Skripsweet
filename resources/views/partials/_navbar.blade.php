@@ -2,7 +2,8 @@
 
             <div class="wrap_header">
                 <a href="index.html" class="logo">
-                    <img src="{{asset('images/logo.png')}} "class="d-inline-block align-top" >
+                    <img src="{{asset('images/1.png')}} "class="d-inline-block align-left">
+                    <h8 > PT ANUGRAH DISTRIBUTOR INDONESIA</h8>
                 </a>
 
                 <div class="wrap_menu">
@@ -47,43 +48,57 @@
                     <span class="linedivide1"></span>
 
                     @auth
+                    
+
                     <div class="header-wrapicon2">
+                        <a href="{{ route('account.my-account') }}">
+                            <img src="{{ asset('images/icon-header-01.png') }} " class="header-icon1 js-show-header" alt="ICON" >
+                        </a>
+                    </div>
+
+                    <span class="linedivide1"></span>
+
+                    <div class="header-wrapicon2">
+                    <a href="{{ route('cart') }}"> 
                         <img src="{{ asset('images/icon-header-02.png') }}" class="header-icon1 js-show-header-dropdown" alt="ICON">
                         <span class="header-icons-noti">
                             {{ is_null(Auth::user()->customer->cart) ? 0 : Auth::user()->customer->cart->products->groupBy('id')->count() }}
                         </span>
-
+                    </a>    
+                    </div>
                         <!-- Header cart noti -->
                         <div class="header-cart header-dropdown">
                             <ul class="header-cart-wrapitem">
                                 @php
                                     $persada = 0;
                                 @endphp
-                                @foreach (Auth::user()->customer->cart->products->groupBy('id') as $item)
-                                <li class="header-cart-item">
-                                    <div class="header-cart-item-img">
-                                        <img src="{{ asset('storage/'. $item->first()->image) }}" alt="IMG">
-                                    </div>
+                                @if (Auth::user()->customer->cart != null)
+                                    @foreach (Auth::user()->customer->cart->products->groupBy('id') as $item)
+                                    <li class="header-cart-item">
+                                        <div class="header-cart-item-img">
+                                            <img src="{{ asset('storage/'. $item->first()->image) }}" alt="IMG">
+                                        </div>
 
-                                    <div class="header-cart-item-txt">
-                                        <a href="#" class="header-cart-item-name">
-                                            {{ $item->first()->name }}
-                                        </a>
+                                        <div class="header-cart-item-txt">
+                                            <a href="#" class="header-cart-item-name">
+                                                {{ $item->first()->name }}
+                                            </a>
 
-                                        @php
-                                            $qty = 0;
-                                            foreach ($item as $product) {
-                                                $qty += $product->pivot->quantity;
-                                                $persada += $product->pivot->price;
-                                            }
-                                        @endphp
+                                            @php
+                                                $qty = 0;
+                                                foreach ($item as $product) {
+                                                    $qty += $product->pivot->quantity;
+                                                    $persada += $product->pivot->price;
+                                                }
+                                            @endphp
 
-                                        <span class="header-cart-item-info">
-                                            {{ $qty }} x {{ number_format($item->first()->price) }}
-                                        </span>
-                                    </div>
-                                </li>
-                                @endforeach
+                                            <span class="header-cart-item-info">
+                                                {{ $qty }} x {{ number_format($item->first()->price) }}
+                                            </span>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                @endif
                             </ul>
 
                             <div class="header-cart-total">
@@ -93,7 +108,7 @@
                             <div class="header-cart-buttons">
                                 <div class="header-cart-wrapbtn">
                                     <!-- Button -->
-                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                    <a href="{{ route('cart', 1) }}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                         View Cart
                                     </a>
                                 </div>

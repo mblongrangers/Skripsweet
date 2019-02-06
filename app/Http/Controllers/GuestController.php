@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Cart;
+use Auth;
+use App\User;
 
 class GuestController extends Controller
 {

@@ -15,8 +15,8 @@ return [
     'project_name' => 'Backpack',
 
     // Menu logos
-    'logo_lg'   => '<b>Back</b>pack',
-    'logo_mini' => '<b>B</b>p',
+    'logo_lg'   => '<img src="http://localhost:8000/images/1.png " class="logo" style="width : 100px;">',
+    'logo_mini' => '<b>ADI</b>',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',
@@ -88,11 +88,7 @@ return [
     */
 
     // Fully qualified namespace of the User model
-// <<<<<<<HEAD;
-    'user_model_fqn' => App\User::class,
-// =======
     'user_model_fqn' => App\Models\BackpackUser::class,
-// >>>>>>> c28ff1e2b1d075a0f5281dd0cfa77252a1101526
 
     // The classes for the middleware to check if the visitor is an admin
     // Can be a single class or an array of clases

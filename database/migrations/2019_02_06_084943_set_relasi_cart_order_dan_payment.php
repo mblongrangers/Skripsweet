@@ -22,6 +22,10 @@ class SetRelasiCartOrderDanPayment extends Migration
             $table->unsignedInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
         });
+        Schema::table('orders', function($table) {
+            $table->unsignedInteger('cart_id');
+            $table->foreign('cart_id')->references('id')->on('carts');
+        });
     }
 
     /**

@@ -57,7 +57,7 @@
 			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
 				<form action="{{ route('orders.store') }}" method="post">
 					@csrf
-					<input type="hidden" value="{{ Auth::user()->customer->cart->id }}" name="customer_id">
+					<input type="hidden" value="{{ Auth::user()->customer->cart()->id }}" name="customer_id">
 					<h5 class="m-text20 p-b-24">
 						Cart Totals
 					</h5>
@@ -128,7 +128,7 @@
 				$('#sub_tot').html('');
 				$('#persada-' + element).html(parseInt(val) + price);
 
-				$.post( "http://localhost:8000/api/cart/" + {{ Auth::user()->customer->cart->id }} + "/product/" + element, 
+				$.post( "http://localhost:8000/api/cart/" + {{ Auth::user()->customer->cart()->id }} + "/product/" + element, 
 					{ quantity: parseInt(qty) + 1}
 				).done(function(response) {
 					$('#sub_tot').html(tot + price);
@@ -144,7 +144,7 @@
 				$('#persada-' + element).html('')
 				$('#persada-' + element).html(parseInt(val) - price);
 
-				$.post( "http://localhost:8000/api/cart/" + {{ Auth::user()->customer->cart->id }} + "/product/" + element, 
+				$.post( "http://localhost:8000/api/cart/" + {{ Auth::user()->customer->cart()->id }} + "/product/" + element, 
 					{ quantity: parseInt(qty) - 1}
 				).done(function(response) {
 					$('#sub_tot').html(tot - price);

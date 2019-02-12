@@ -8,7 +8,7 @@
             <div class="col-md-8 offset-md-2" style="margin-bottom: 20px">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Order number #{{ $order->id }}</h5>
+                    <h5 class="card-title"><a href="{{ route('orders.show', $order->id) }}">Order number #{{ $order->id }}</a></h5>
                     <hr>
                     <div class="row">
                         <div class="col-md-6">

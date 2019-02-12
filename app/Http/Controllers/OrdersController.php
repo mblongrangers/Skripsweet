@@ -18,9 +18,17 @@ class OrdersController extends Controller
     {
         $order = Order::create([
             'discount' => 0,
-            'customer_id' => $request->customer_id,
-            'address_id' => $request->address_id
+            'customer_id' => Auth::user()->customer->id,
+            'address_id' => $request->address_id,
+            'cart_id' => Auth::user()->customer->cart()->id
         ]);
+        Auth::user()->customer->carts()->create();
         return redirect()->route('catalogue');
+    }
+
+    public function show($id)
+    {
+        $order = Order::find($id);
+        return view('orders.show', compact('order'));
     }
 }

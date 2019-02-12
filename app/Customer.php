@@ -20,9 +20,13 @@ class Customer extends Model
     	return $this->hasMany(Address::class);
     }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
     public function cart()
     {
-        return $this->hasOne(Cart::class);
+        return $this->carts()->orderBy('created_at', 'desc')->first();
     }
      public function payments()
     {

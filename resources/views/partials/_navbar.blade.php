@@ -69,7 +69,7 @@
                     <a href="{{ route('cart') }}"> 
                         <img src="{{ asset('images/icon-header-02.png') }}" class="header-icon1 js-show-header-dropdown" alt="ICON">
                         <span class="header-icons-noti">
-                            {{ is_null(Auth::user()->customer->cart) ? 0 : Auth::user()->customer->cart->products->groupBy('id')->count() }}
+                            {{ is_null(Auth::user()->customer->cart()) ? 0 : Auth::user()->customer->cart()->products->groupBy('id')->count() }}
                         </span>
                     </a>    
                     </div>
@@ -79,8 +79,8 @@
                                 @php
                                     $persada = 0;
                                 @endphp
-                                @if (Auth::user()->customer->cart != null)
-                                    @foreach (Auth::user()->customer->cart->products->groupBy('id') as $item)
+                                @if (Auth::user()->customer->cart() != null)
+                                    @foreach (Auth::user()->customer->cart()->products->groupBy('id') as $item)
                                     <li class="header-cart-item">
                                         <div class="header-cart-item-img">
                                             <img src="{{ asset('storage/'. $item->first()->image) }}" alt="IMG">

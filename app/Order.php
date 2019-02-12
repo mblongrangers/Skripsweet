@@ -10,12 +10,17 @@ class Order extends Model
     	'discount',
     	'payment_id',
 		'customer_id',
-		'address_id'
+		'address_id',
+		'cart_id'
 	];
 
 	public function customer()
 	{
 		return $this->belongsTo(Customer::class);
+	}
+	public function cart()
+	{
+		return $this->belongsTo(Cart::class);
 	}
 
 	public function status()

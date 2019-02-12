@@ -7,6 +7,7 @@ use App\Payment;
 use App\Order;
 use Auth;
 use Image;
+use File;
 
 class PaymentController extends Controller
 {
@@ -94,8 +95,11 @@ class PaymentController extends Controller
     public function update($order, Request $request, $id)
     {
         $order = Order::find($order);
-        $order->payment->status = 'acc';
+        $order->payment->status = $request->status;
         $order->payment->save();
+        if ($request->status == 'decline') {
+            File::delete(public_path() . $order->payment->image);
+        }
         return redirect()->route('crud.order.index');
     }
 

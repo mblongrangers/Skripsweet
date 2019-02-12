@@ -42,7 +42,7 @@ class Order extends Model
 	}
 	public function bayarable()
 	{
-		return is_null($this->payment);
+		return is_null($this->payment)  or ($this->payment->status == 'decline');
 	}
 
 	public function payment()

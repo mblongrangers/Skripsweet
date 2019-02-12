@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
+
 
 class Order extends Model
 {
+	use CrudTrait;
+	
 	protected $fillable = [
     	'discount',
     	'payment_id',
@@ -25,9 +29,13 @@ class Order extends Model
 
 	public function status()
 	{
-		$status = 'Dalam tahap Verifikasi';
+		$status = 'Sudah Dibayar';
 		if (is_null($this->payment)) {
 			$status = 'Belum Dibayar';
+		} else if ($this->payment->status == 'acc') {
+			$status = 'Pembayaran Terverifikasi, Tunggu Pesanan';
+		} else if ($this->payment->status == 'decline') {
+			$status = 'Pembayaran Ditolak, Mohon Konfirmasi ulang pembayaran';
 		}
 
 		return $status;
@@ -35,5 +43,10 @@ class Order extends Model
 	public function bayarable()
 	{
 		return is_null($this->payment);
+	}
+
+	public function payment()
+	{
+		return $this->belongsTo(Payment::class);
 	}
 }

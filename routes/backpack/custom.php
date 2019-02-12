@@ -8,4 +8,5 @@ Route::group([
     CRUD::resource('product', 'ProductCrudController');
     CRUD::resource('user', 'UserCrudController');
     CRUD::resource('order', 'OrderCrudController');
+    Route::resource('admin-orders', 'OrderController');
 });

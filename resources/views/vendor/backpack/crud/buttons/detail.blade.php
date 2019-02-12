@@ -1,0 +1,1 @@
+<a href="{{ route('admin-orders.show', $entry->id) }}" class="btn btn-info btn-xs">Details</a>

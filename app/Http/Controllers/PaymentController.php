@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Payment;
+use App\Order;
 use Auth;
+use Image;
 
 class PaymentController extends Controller
 {
@@ -24,7 +26,8 @@ class PaymentController extends Controller
      */
     public function create($order)
     {
-        return view('payments.create');
+        $order = Order::find($order);
+        return view('payments.create', compact('order'));
     }
 
     /**
@@ -33,19 +36,30 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($order, Request $request)
     {
-        $payment = new Payment;
+        $order = Order::find($order);
 
+        $original = $request->file('image');
+        $thumbnail = Image::make($original);
+        $folder = '/images/payments/';
+        $originalPath = public_path() . $folder;
+        $filename = time().$original->getClientOriginalName();
+        $path = $originalPath.$filename;
+        $thumbnail->save($path);
+
+        $payment = new Payment;
         $payment->sender = $request->sender;
-        $payment->image = $request->image;
-        $payment->cart_id = Auth::user()->customer->cart->id;
+        $payment->image = $folder.$filename;
+        $payment->cart_id = $order->cart->id;
         $payment->customer_id = Auth::user()->customer->id;
         $payment->user_id = Auth::user()->id;
         $payment->status = 'process';
         $payment->save();
         
-        return redirect()->route('payment.index');
+        $order->update(['payment_id' => $payment->id]);
+
+        return redirect()->route('payment.index', $order->id);
     }
 
     /**
@@ -77,9 +91,12 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($order, Request $request, $id)
     {
-        //
+        $order = Order::find($order);
+        $order->payment->status = 'acc';
+        $order->payment->save();
+        return redirect()->route('crud.order.index');
     }
 
     /**

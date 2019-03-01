@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
-
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -15,7 +15,8 @@ class Order extends Model
     	'payment_id',
 		'customer_id',
 		'address_id',
-		'cart_id'
+		'cart_id',
+		'created_at'
 	];
 
 	public function customer()
@@ -26,7 +27,6 @@ class Order extends Model
 	{
 		return $this->belongsTo(Cart::class);
 	}
-
 	public function status()
 	{
 		$status = 'Sudah Dibayar';
@@ -40,6 +40,10 @@ class Order extends Model
 
 		return $status;
 	}
+	public function address()
+	{
+		return $this->belongsTo(Address::class);
+	}
 	public function bayarable()
 	{
 		return is_null($this->payment)  or ($this->payment->status == 'decline');
@@ -48,5 +52,17 @@ class Order extends Model
 	public function payment()
 	{
 		return $this->belongsTo(Payment::class);
+	}
+	public static function telahDibayar()
+	{
+		$begin 	= Carbon::parse("first day of " . date('F Y'));
+		$last 	= Carbon::parse("last day of " . date('F Y'))->addDay()->subSecond();
+		$return = [];
+		foreach (Order::whereNotNull('payment_id')->whereBetween('created_at', [$begin, $last])->get() as $order) {
+			if ($order->payment->status == 'acc') {
+				array_push($return, $order);
+			}
+		}
+		return collect($return);
 	}
 }

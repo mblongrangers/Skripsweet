@@ -243,7 +243,7 @@
 
 
   <!-- Banner2 -->
-  <section class="banner2 bg5 p-t-55 p-b-55">
+  {{-- <section class="banner2 bg5 p-t-55 p-b-55">
     <div class="container">
       <div class="row">
         <div class="col-sm-10 col-md-8 col-lg-6 m-l-r-auto p-t-15 p-b-15">
@@ -332,6 +332,6 @@
       </div>
     </div>
   </section>
-
+ --}}
 
 @endsection

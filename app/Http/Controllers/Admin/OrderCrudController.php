@@ -41,6 +41,8 @@ class OrderCrudController extends CrudController
             ]
         );
         $this->crud->addButtonFromView('line', 'detail', 'detail', 'beginning');
+        $this->crud->addButtonFromView('line', 'invoice', 'invoice', 'end');
+        $this->crud->addButtonFromView('line', 'delivery', 'delivery', 'end');
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

@@ -14,16 +14,16 @@ class SetRelasiCartOrderDanPayment extends Migration
     public function up()
     {
         Schema::table('orders', function($table) {
-            $table->unsignedInteger('payment_id')->nullable();
+            $table->unsignedMediumInteger('payment_id')->nullable();
             $table->foreign('payment_id')->references('id')->on('payments');
         });
 
         Schema::table('orders', function($table) {
-            $table->unsignedInteger('customer_id');
+            $table->unsignedTinyInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
         });
         Schema::table('orders', function($table) {
-            $table->unsignedInteger('cart_id');
+            $table->unsignedTinyInteger('cart_id');
             $table->foreign('cart_id')->references('id')->on('carts');
         });
     }

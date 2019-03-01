@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Invoice</title>
+		<title>Delivery Order</title>
 		<link rel="stylesheet" href="{{ asset('pdf\style.css') }}">
 		<link rel="license" href="http://www.opensource.org/licenses/mit-license/">
 		<script src="{{ asset('pdf\script.js') }}"></script>
 	</head>
 	<body>
 		<header>
-			<h1>Sales Invoice</h1>
+			<h1>Delivery Order</h1>
 			<address contenteditable>
 				<p>PT Anugrah Distributor Indonesia
 				<p>Jln. Prabu Kian Santang No. 169 A <br>Sangiang, Kota Tangerang</p>
@@ -31,10 +31,6 @@
 					<td><span contenteditable>{{ $pdf->created_at->format('d/m/Y ') }}</span></td>
 				</tr>
 				<tr>
-					<th><span contenteditable>Amount Due</span></th>
-					<td><span id="prefix" contenteditable>Rp. {{ $pdf->cart->total() }}</span><span</span></td>
-				</tr>
-				<tr>
 					<th><span contenteditable>Ship To</span></th>
 					<td><span id="prefix" contenteditable>{{ ucwords($pdf->address->address) }}</span><span</span></td>
 				</tr>
@@ -43,23 +39,21 @@
 				<thead>
 					<tr>
 						<th><span contenteditable>Name</span></th>
-						<th><span contenteditable>Price</span></th>
+						<th><span contenteditable>Description</span></th>
 						<th><span contenteditable>Quantity</span></th>
-						<th><span contenteditable>SubTotal</span></th>
 					</tr>
 				</thead>
 				<tbody>
 					@foreach ($pdf->cart->products as $product)
 					<tr>
 						<td><span contenteditable>{{ $product->name }}</span></td>
-						<td><span data-prefix>Rp </span><span contenteditable>{{ number_format($product->price) }}</span></td>
+						<td><span style="display: inline;" contenteditable>{{ $product->description }}</span></td>
 						<td><span contenteditable>{{ $product->pivot->quantity }}</span></td>
-						<td><span data-prefix>Rp </span><span>{{ number_format($product->price * $product->pivot->quantity) }}</span></td>
 					</tr>
 					@endforeach
 				</tbody>
 			</table>
-			{{-- <a class="add">+</a> --}}
+			<!-- {{-- <a class="add">+</a> --}}
 			<table class="balance">
 				<tr>
 					<th><span contenteditable>Total</span></th>
@@ -73,5 +67,5 @@
 				<p>A finance charge of 1.5% will be made on unpaid balances after 30 days.</p>
 			</div> --}}
 		</aside>
-	</body>
+ -->	</body>
 </html>

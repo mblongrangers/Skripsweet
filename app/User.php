@@ -9,7 +9,7 @@ use Backpack\CRUD\CrudTrait;
 
 class User extends Authenticatable
 {
-        use CrudTrait;
+    use CrudTrait;
 
     use Notifiable;
 
@@ -45,5 +45,20 @@ class User extends Authenticatable
     public function loginAs()
     {
         return $this->role->label;
+    }
+
+    public function isAdmin()
+    {
+        return $this->role->id == 1;
+    }
+
+    public function isCustomer()
+    {
+        return $this->role->id == 2;
+    }
+    
+    public function isManager()
+    {
+        return $this->role->id == 3;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use App\Role;
 
 class User extends Model
 {
@@ -20,6 +21,27 @@ class User extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['email', 'password'];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role->id == 1;
+    }
+
+    public function isCustomer()
+    {
+        return $this->role->id == 2;
+    }
+    
+    public function isManager()
+    {
+        return $this->role->id == 3;
+    }
+    
     // protected $hidden = [];
     // protected $dates = [];
 

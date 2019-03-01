@@ -11,7 +11,12 @@
                         Payment
                     </h4>
 
-                    <div class="bo4 of-hidden size15 m-b-20">
+                    <center><h5> Nama Bank </h5></center>
+                    <center><h5><b> Bank Centrak Asia (BCA) </b></h5></center>
+                    <center><h5> No Rekening </h5></center>
+                    <center><h5><b> 731-025-2527 </b></h5></center>                        
+
+                    <div class="bo4 of-hidden size15 m-b-20" >
                         <input id="name" type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="sender" value="" required placeholder="Your Name">
                     </div>
 

@@ -13,6 +13,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function sales(){
+        return view('invoice.salesinvoice');
+    }
+    
     public function index()
     {
         //

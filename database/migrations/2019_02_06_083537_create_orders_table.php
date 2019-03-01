@@ -15,12 +15,12 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('discount');
+            $table->string('discount', 25);
             $table->timestamps();
         });
 
         Schema::table('orders', function($table) {
-            $table->unsignedInteger('address_id');
+            $table->unsignedSmallInteger('address_id');
             $table->foreign('address_id')->references('id')->on('addresses');
         });
     }

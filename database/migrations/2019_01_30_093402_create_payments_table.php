@@ -14,9 +14,9 @@ class CreatePaymentsTable extends Migration
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('sender');
-            $table->string('image');
+            $table->mediumIncrements('id');
+            $table->string('sender', 25);
+            $table->string('image', 60);
             $table->timestamps();
             $table->enum('status', ['process','acc','decline'])->default('process');
         });

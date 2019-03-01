@@ -60,7 +60,7 @@ class PaymentController extends Controller
         
         $order->update(['payment_id' => $payment->id]);
 
-        return redirect()->route('payment.index', $order->id);
+        return redirect()->route('orders.index');
     }
 
     /**

@@ -38,6 +38,15 @@ class ProductCrudController extends CrudController
             'prefix' => 'storage/'
          ]);
 
+        $this->crud->addField([
+        'name' => 'id',
+        'label' => 'ID'
+        ]);
+        $this->crud->addColumn([
+        'name' => 'id',
+        'label' => 'ID Barang'
+        ]);
+
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

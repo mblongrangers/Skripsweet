@@ -138,12 +138,12 @@
 				</form>
 			</div>
 		</div> --}}
-			<div class="t-center s-text8 p-t-20">
+			<div class="t-center s-text8 p-t-20" >
 				Copyright PT Anugrah Distributor Indonesia © 2018 All rights reserved. 
 			</div>
 			
 			<!-- Back to top -->
-	<div class="btn-back-to-top bg0-hov" id="myBtn">
+	<div class="btn-back-to-top bg0-hov" id="myBtn" >
 		<span class="symbol-btn-back-to-top">
 			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 		</span>

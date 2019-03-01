@@ -22,7 +22,7 @@ class UserCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\User');
+        $this->crud->setModel('App\User');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/user');
         $this->crud->setEntityNameStrings('user', 'users');
         $this->crud->setFromDb();
@@ -49,6 +49,8 @@ class UserCrudController extends CrudController
     {
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
+        $this->crud->entry->password = bcrypt($this->crud->entry->password);
+        $this->crud->entry->save();
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;

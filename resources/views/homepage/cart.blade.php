@@ -2,6 +2,10 @@
 
 @section('content')
 
+@php
+use Illuminate\Support\Str;
+@endphp
+
 	<section class="cart bgwhite p-t-70 p-b-100">
 		<div class="container">
 			<div class="container-table-cart pos-relative">
@@ -10,9 +14,11 @@
 						<tr class="table-head">
 							<th class="column-1"></th>
 							<th class="column-2">Product</th>
+							<th class="column-2">Deskripsi</th>
 							<th class="column-3">Price</th>
 							<th class="column-4 p-l-70">Quantity</th>
-							<th class="column-5">Total</th>
+							<th class="column-2">Total</th>
+							<th class="column-3"></th>
 						</tr>
 							@php
 								$sub = 0;
@@ -26,13 +32,15 @@
 								@endphp
 						<tr class="table-row">
 							<td class="column-1">
-								<div class="cart-img-product b-rad-4 o-f-hidden">
+								<div class="cart-img-product">
 									<img src="{{ asset('storage/'.$element->first()->image) }}" alt="IMG-PRODUCT">
 								</div>
 							</td>
 							<td class="column-3">{{ $element->first()->name }}</td>
+							<td class="column-3">{{ Str::limit($element->first()->description, 30) }}</td>
 							<td class="column-3">{{ $element->first()->price }}</td>
-							<td class="column-4">
+							
+							<td class="column-4">	
 								<div class="flex-w bo5 of-hidden w-size17">
 									<button onclick="subPrice({{ $element->first()->id }}, {{ $element->first()->price }})" class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
 										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
@@ -46,6 +54,13 @@
 								</div>
 							</td>
 							<td class="column-5"><strong id="persada-{{ $element->first()->id }}">{{ $element->first()->price * $qty }}</strong></td>
+							<td>
+								<form method="post" action="{{ route('cart.detach', [Auth::user()->customer->cart()->id, $element->first()->id]) }}">
+									@csrf
+									@method('PUT')
+									<button type="submit" class="btn btn-danger">Hapus</button>
+								</form>
+							</td>
 							@php
 								$sub += $element->first()->price * $qty;
 							@endphp
@@ -104,7 +119,7 @@
 
 					<div class="size15 trans-0-4">
 						<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" >
-							Proceed to Payment
+							Proceed to Checkout
 						</button>
 					</div>
 				</form>

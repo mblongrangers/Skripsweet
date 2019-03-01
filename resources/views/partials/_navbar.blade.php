@@ -60,7 +60,10 @@
                     <div class="header-wrapicon2">
                         <a href="{{ route('orders.index') }}">
                             <img src="{{ asset('images/icon-header-03.png') }} " class="header-icon1 js-show-header" alt="ICON" >
-                        </a>
+                        </a>{{-- 
+                        <span class="header-icons-noti">
+                            {{ is_null(Auth::user()->customer->cart()) ? 0 : Auth::user()->customer->cart()->products->groupBy('id')->count() }}
+                        </span> --}}
                     </div>
                     
                     <span class="linedivide1"></span>
@@ -242,39 +245,9 @@
         <div class="wrap-side-menu" >
             <nav class="side-menu">
                 <ul class="main-menu">
-                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-                        <span class="topbar-child1">
-                            Free shipping for standard order over $100
-                        </span>
-                    </li>
-
-                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
-                        <div class="topbar-child2-mobile">
-                            <span class="topbar-email">
-                                fashe@example.com
-                            </span>
-
-                            <div class="topbar-language rs1-select2">
-                                <select class="selection-1" name="time">
-                                    <option>USD</option>
-                                    <option>EUR</option>
-                                </select>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="item-topbar-mobile p-l-10">
-                        <div class="topbar-social-mobile">
-                            <a href="#" class="topbar-social-item fa fa-facebook"></a>
-                            <a href="#" class="topbar-social-item fa fa-instagram"></a>
-                            <a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-                            <a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-                            <a href="#" class="topbar-social-item fa fa-youtube-play"></a>
-                        </div>
-                    </li>
-
+                    
                     <li class="item-menu-mobile">
-                        <a href="index.html">Home</a>
+                        <a href="{{ route('index') }}">Home</a>
                     </li>
 
                     <li class="item-menu-mobile">
@@ -282,24 +255,13 @@
                     </li>
 
                     <li class="item-menu-mobile">
-                        <a href="product.html">Sale</a>
+                        <a href="{{ route('tutorial') }}">Tutorial</a>
                     </li>
 
                     <li class="item-menu-mobile">
-                        <a href="cart.html">Features</a>
+                        <a href="{{ route('about') }}">About</a>
                     </li>
 
-                    <li class="item-menu-mobile">
-                        <a href="blog.html">Blog</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="about.html">About</a>
-                    </li>
-
-                    <li class="item-menu-mobile">
-                        <a href="contact.html">Contact</a>
-                    </li>
                 </ul>
             </nav>
         </div>

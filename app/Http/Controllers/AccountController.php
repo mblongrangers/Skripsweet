@@ -65,6 +65,7 @@ class AccountController extends Controller
 
     public function deleteAddress($id)
     {
+        dd($id);
         $address = Address::find($id)->delete();
         return redirect()->back();
     }

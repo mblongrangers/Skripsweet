@@ -14,12 +14,12 @@ class SetRelasiCustomerAddressDanUser extends Migration
     public function up()
     {
         Schema::table('customers', function($table) {
-            $table->unsignedInteger('user_id');
+            $table->unsignedSmallInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::table('addresses', function($table) {
-            $table->unsignedInteger('customer_id');
+            $table->unsignedTinyInteger('customer_id');
             $table->foreign('customer_id')->references('id')->on('customers');
         });
     }

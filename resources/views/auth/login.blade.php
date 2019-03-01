@@ -1,4 +1,4 @@
-@extends('layouts.customer')
+ @extends('layouts.customer')
 
 @section('content')
 <section class="bgwhite p-t-66 p-b-60">

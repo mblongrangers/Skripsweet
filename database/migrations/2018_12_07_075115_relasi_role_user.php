@@ -14,7 +14,7 @@ class RelasiRoleUser extends Migration
     public function up()
     {
         Schema::table('users', function($table) {
-            $table->unsignedInteger('role_id')->default(2);
+            $table->unsignedTinyInteger('role_id')->default(2);
             $table->foreign('role_id')->references('id')->on('roles');
         });
     }

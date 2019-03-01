@@ -32,6 +32,10 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['prefix' => '{order_id}'], function() {
 		Route::resource('payment', 'PaymentController');
 	});
+	Route::get('invoice/{id}', [
+	    'as' => 'sales.unduh',
+	    'use' => 'OrderController@sales'
+	]);
 	Route::resource('orders', 'OrdersController');
 	Route::get('my-account', 'AccountController@myAccount')->name('account.my-account');
 	Route::get('home', 'HomeController@index')->name('home');
@@ -45,6 +49,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::delete('delete-address/{id}', 'AccountController@deleteAddress')->name('address.delete');
 	Route::patch('update-address/{id}', 'AccountController@updateAddress')->name('address.update');
 	Route::patch('update-customer', 'AccountController@updateCustomer')->name('customer.update');
-	Route::get('invoice', 'PDFController@invoice')->name('home');
+	Route::put('cart/{id}/detach/{product}', 'CartController@detach')->name('cart.detach');
 });
 

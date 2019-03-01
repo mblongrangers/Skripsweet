@@ -23,4 +23,12 @@ class Cart extends Model
     {
         return $this->hasOne(Order::class);
     }
+    public function total()
+    {
+        $count = 0;
+        foreach ($this->products as $product) {
+            $count += $product->pivot->quantity * $product->price;
+        }
+        return $count;
+    }
 }

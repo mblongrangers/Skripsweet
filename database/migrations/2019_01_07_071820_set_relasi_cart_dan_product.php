@@ -14,13 +14,13 @@ class SetRelasiCartDanProduct extends Migration
     public function up()
     {
         Schema::create('cart_product', function($table) {
-            $table->increments('id');
+            $table->tinyIncrements('id');
             $table->unsignedInteger('quantity');
             $table->unsignedInteger('price');
-            $table->unsignedInteger('product_id');
-            $table->unsignedInteger('cart_id');
-            $table->foreign('cart_id')->references('id')->on('carts');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->unsignedTinyInteger('product_id');
+            $table->unsignedTinyInteger('cart_id');
+            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

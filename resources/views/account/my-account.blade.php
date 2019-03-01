@@ -67,7 +67,7 @@
             <div class="col-md-6 p-b-30">
                 <div class="row">
                     <div class="col-md-12">
-                        <form method="POST" action="{{ route('customer.update', Auth::user()->customer->id) }}">
+                        <form class="registerForm" method="POST" action="{{ route('customer.update', Auth::user()->customer->id) }}">
                             @csrf
                             @method('PATCH')
                             <h4 class="m-text26 p-b-36 p-t-15">

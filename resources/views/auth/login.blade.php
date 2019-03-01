@@ -23,6 +23,11 @@
                     <div class="bo4 of-hidden size15 m-b-20">
                         <input id="password" type="password" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Your Password">
                     </div>
+
+                    <div class="of-hidden m-b-20">
+                        <a href="{{ route('password.request') }}">Forgot password ?</a>
+                    </div>
+
                     @if ($errors->has('password'))
                         <div class="alert alert-danger">
                             <small>{{ $errors->first('password') }}</small>

@@ -75,13 +75,14 @@
                             </h4>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required minlength="3" maxlength="15" placeholder="Your Name" value="{{ !is_null($current) ? $current->name : ''}}">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" minlength="3" maxlength="15" placeholder="Your Name" value="{{ old('name') }}">
                             </div>
-                            @if ($errors->has('name'))
+                            {!! $errors->first('name', '<span class="invalid-feedback">:message</span>') !!}
+                            {{-- @if ($errors->has('name'))
                                 <div class="alert alert-danger">
                                     <small>{{ $errors->has('name') ? ' is-invalid' : '' }}</small>
                                 </div>
-                            @endif
+                            @endif --}}
 
                             <div class="w-size25">
                                 <button type="submit" class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
@@ -106,26 +107,30 @@
                             </h4>
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" required minlength="3" maxlength="15" placeholder="Your Address Name" value="{{ !is_null($current) ? $current->name : ''}}">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" minlength="3" maxlength="15" placeholder="Your Address Name" value="{{ old('name') }}">
+                            {{-- {!! $errors->first('name', '<span class="invalid-feedback">:message</span>') !!} --}}
                             </div>
                             @if ($errors->has('name'))
                                 <div class="alert alert-danger">
-                                    <small>{{ $errors->has('name') ? ' is-invalid' : '' }}</small>
+                                    <small>{{ $errors->has('name') ? 'The name must be a A-Z.' : '' }}</small>
                                 </div>
                             @endif
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" required placeholder="Your Address" value="{{ !is_null($current) ? $current->address : ''}}" >
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" value="{{ old('address') }}" >
+                                {{-- <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" value="{{ !is_null($current) ? $current->address : ''}}" > --}}
                             </div>
+                            {{-- {!! $errors->first('address', '<span class="invalid-feedback">:message</span>') !!} --}}
                             @if ($errors->has('address'))
                                 <div class="alert alert-danger">
-                                    <small>{{ $errors->first('address') ? ' is-invalid' : ''}}</small>
+                                    <small>{{ $errors->first('address') ? 'The phone must be a registerd.' : ''}}</small>
                                 </div>
                             @endif
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22" {{ $errors->has('phone') ? ' is-invalid' : '' }} name="phone" required placeholder="Your Phone" value="{{ !is_null($current) ? $current->phone : ''}}">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" placeholder="Your Phone" value="{{ old('phone') }}">
                             </div>
+                            {{-- {!! $errors->first('phone', '<span class="invalid-feedback">:message</span>') !!} --}}
                             @if ($errors->has('phone'))
                                 <div class="alert alert-danger">
                                     <small>{{ $errors->first('phone') }}</small>

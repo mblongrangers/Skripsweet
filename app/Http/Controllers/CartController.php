@@ -16,9 +16,9 @@ class CartController extends Controller
 
     public function addToCart(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $request->validate([
-            'qty' => 'required|max:4',
+            'qty' => 'required|max:3',
         ]);
 
     	$product = Product::find($request->product_id);

@@ -35,6 +35,7 @@ class AccountController extends Controller
 
     public function updateAccount(Request $request)
     {
+
         if (Auth::user()->customer->addresses->first() == null) {
             Auth::user()->customer->addresses()->create([
                 'name' => $request->name,
@@ -53,6 +54,13 @@ class AccountController extends Controller
 
     public function addAddress(Request $request)
     {
+        // dd($request);
+        $this->validate($request, [
+            'name' => 'required|regex:/^[a-zA-Z ]+$/',
+            'address' => 'required',
+            'phone' => 'required|digits_between:12,13|numeric'
+        ]);
+
         $customer = Auth::user()->customer;
         $address = Address::create([
             'name' => $request->name,
@@ -65,13 +73,17 @@ class AccountController extends Controller
 
     public function deleteAddress($id)
     {
-        dd($id);
         $address = Address::find($id)->delete();
         return redirect()->back();
     }
 
     public function updateAddress(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required|string:value',
+            'address' => 'required|max:60',
+            'phone' => 'required|numeric'
+        ]);
         $address = Address::find($id);
         $address->update([
             'name' => $request->name,

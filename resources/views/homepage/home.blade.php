@@ -156,7 +156,7 @@
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
-              <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+              {{-- <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"> --}}
                 Freshener
               </a>
             </div>
@@ -171,7 +171,7 @@
               <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                 Order Now
               </a>
-              {{-- <button class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">Kacamata</button> --}}
+              <button class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">Kacamata</button>
             </div>
           </div>
         </div>

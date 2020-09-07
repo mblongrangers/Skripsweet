@@ -15,8 +15,7 @@
 						Our story
 					</h3>
 					<p class="class="lead" style="text-align: justify;"> <font face="times new roman">
-						PT Anugrah Distributor Indonesia yang berdiri pada tahun 2016 adalah perusahan yang bergerak dibidang ritel khususnya pada produk perawatan otomotif (automotive care), cat semprot (spray paint) dan pelumas (lubricant) dengan merk terdaftar A72 King yaitu dengan produk chain lube. spray paint, premium paint, paint remover, drain max, oli shock, fuel injector, foaming cleaner dan masih banyak lagi. Adapun pendirinya yaitu bernama <b>Anandhan S.T</b>. Melihat pasar yang semakin besar yaitu makin banyaknya motor dan mobil yang membutuhkan perawatan secara berkala dan rutin memotivasi beliau untuk membuat serta memasarkan merk dan nama produk A72 yang mampu bersaing secara kualitas maupun harga pada produk yang sudah ada sebelumnya.
-						Perusahaan berkantor di alamat jalan Prabu Kian Santang no. 169a, Sangiang Tangerang ini dalam aktivitasnya perusahaan banyak bergerak dibidang bisnis seperti penjualan produk dan pembelian bahan baku produk. Seperti perusahaan pada umumnya PT. Anugrah Distributor Indonesia juga meningkatkan aktivitas bisnis dengan menjalin kerjasama pada toko/bengkel yang menyediakan secara khusus perawatan mobil/motor  ataupun peralatan ritel lainnya demi tercapainya maksud dan tujuan perusahaan.
+						PT Anugrah Maju Sentosa yang berdiri pada tahun 2014 adalah perusahan yang bergerak dibidang PLASTIC MATERIALS: PRODUCTS, SEMI-FINISHED PRODUCTS (MANUFACTURE, TRADE).
 					</p> </font>
 						<br>
 					<div class="bo13 p-l-29 m-l-9 p-b-10">

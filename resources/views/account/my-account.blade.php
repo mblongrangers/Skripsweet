@@ -117,7 +117,7 @@
                             @endif
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" value="{{ old('address') }}" >
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" maxlength="45" value="{{ old('address') }}" >
                                 {{-- <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" value="{{ !is_null($current) ? $current->address : ''}}" > --}}
                             </div>
                             {{-- {!! $errors->first('address', '<span class="invalid-feedback">:message</span>') !!} --}}

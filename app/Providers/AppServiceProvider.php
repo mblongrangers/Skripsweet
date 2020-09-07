@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // \App\Models\Product::observe(\App\Observers\ProductObserver::class);
+        // \App\Product::observe(\App\Observers\ProductObserver::class);
     }
 }

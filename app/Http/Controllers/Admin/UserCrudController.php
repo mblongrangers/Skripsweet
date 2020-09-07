@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Hash;
+use Auth;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-
-// VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\UserRequest as StoreRequest;
 use App\Http\Requests\UserRequest as UpdateRequest;
 
@@ -37,12 +37,28 @@ class UserCrudController extends CrudController
 
         $this->crud->removeColumn('password');
         $this->crud->addField([
+        'label' => "Hak Akses",
            'type' => 'select2', // aturan harus
            'name' => 'role_id', // field sumber realasi (fk)
            'entity' => 'role', // function model sumber ke model tujuan
            'attribute' => 'name', // field model tujuan yang mau ditampilkan
            'model' => "App\Role" // model tujuan
         ]);
+
+        $this->crud->addColumn([
+           'label' => "Hak Akses",
+           'type' => 'select', // aturan harus
+           'name' => 'role_id', // field sumber realasi (fk)
+           'entity' => 'role', // function model sumber ke model tujuan
+           'attribute' => 'name', // field model tujuan yang mau ditampilkan
+           'model' => "App\Role" // model tujuan
+        ]);
+
+        // $this->crud->addColumn([
+        //    'label' => "password",
+        //    'type' => 'text', // aturan harus
+        //    'name' => 'password', // field sumber realasi (fk)
+        // ]);
     }
 
     public function store(StoreRequest $request)

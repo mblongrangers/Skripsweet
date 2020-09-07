@@ -1,29 +1,29 @@
     <div class="container-menu-header">
 
             <div class="wrap_header">
-                <a href="index.html" class="logo">
-                    <img src="{{asset('images/1.png')}} "class="d-inline-block align-left">
-                    <h8 > PT ANUGRAH DISTRIBUTOR INDONESIA</h8>
+                <a href="{{ route('index') }}" class="logo">
+                    <img src="{{asset('images/anugrah_maju_sentosa_pt.png')}} "class="d-inline-block align-left">
+                    <h8 > PT ANUGRAH MAJU SENTOSA</h8>
                 </a>
 
                 <div class="wrap_menu">
                     <nav class="menu">
                         <ul class="main_menu">
                             
-                            <li class="{{ Request::is('/') ? 'sale-noti' : null }}">
-                                <a href="{{ route('index') }}" >Home</a>
+                            <li>
+                                <a class="{{ request()->is('/*') ? 'nav-active' : null }}" href="{{ route('index') }}" >Home</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('catalogue') }}">Catalogue</a>
+                                <a class="{{ request()->is('catalogue*') ? 'nav-active' : null }}" href="{{ route('catalogue') }}">Catalogue</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('tutorial') }}">Tutorial</a>
+                                <a class="{{ request()->is('tutorial*') ? 'nav-active' : null }}" href="{{ route('tutorial') }}">Tutorial</a>
                             </li>
 
                             <li>
-                                <a href="{{ route('about') }}">About</a>
+                                <a class="{{ request()->is('about*') ? 'nav-active' : null }}" href="{{ route('about') }}">About</a>
                             </li>
                         </ul>
                     </nav>
@@ -41,8 +41,14 @@
                                 @csrf
                             </form>
                         @else
-                            <a href="{{ route('login') }}" class="nav-link">Login</a>
-                            <a href="{{ route('register') }}" class="nav-link">Register</a>
+                        <ul class="main_menu">
+                            <li>
+                            <a class="{{ request()->is('login*') ? 'nav-active' : null }}" href="{{ route('login') }}">Login</a>
+                            </li>
+                            <li>
+
+                            <a class="{{ request()->is('register*') ? 'nav-active' : null }}" href="{{ route('register') }}">Register</a>
+                            </li>
                     @endauth
 
                     <span class="linedivide1"></span>
@@ -60,10 +66,10 @@
                     <div class="header-wrapicon2">
                         <a href="{{ route('orders.index') }}">
                             <img src="{{ asset('images/icon-header-03.png') }} " class="header-icon1 js-show-header" alt="ICON" >
-                        </a>{{-- 
+                        </a>
                         <span class="header-icons-noti">
-                            {{ is_null(Auth::user()->customer->cart()) ? 0 : Auth::user()->customer->cart()->products->groupBy('id')->count() }}
-                        </span> --}}
+                            {{ is_null(Auth::user()->customer->cart()) ? 0 : Auth::user()->customer->orders->count() }}
+                        </span>
                     </div>
                     
                     <span class="linedivide1"></span>

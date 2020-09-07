@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->role->id == 3;
     }
+
+    public function isAkuntan()
+    {
+        return $this->role->id == 4;
+    }
 }

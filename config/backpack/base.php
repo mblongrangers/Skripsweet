@@ -15,8 +15,8 @@ return [
     'project_name' => 'Backpack',
 
     // Menu logos
-    'logo_lg'   => '<img src="http://localhost:8000/images/1.png " class="logo" style="width : 100px;">',
-    'logo_mini' => '<b>ADI</b>',
+    'logo_lg'   => '<img src="http://localhost:8000/images/anugrah_maju_sentosa_pt.png " class="logo" style="width : 100px;">',
+    'logo_mini' => '<b>AMS</b>',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Cristian Tabacitu',
@@ -28,7 +28,7 @@ return [
     'show_powered_by' => true,
 
     // The AdminLTE skin. Affects menu color and primary/secondary colors used throughout the application.
-    'skin' => 'skin-purple',
+    'skin' => 'skin-blue-light',
     // Options: skin-black, skin-blue, skin-purple, skin-red, skin-yellow, skin-green, skin-blue-light, skin-black-light, skin-purple-light, skin-green-light, skin-red-light, skin-yellow-light
 
     // Date & Datetime Format Syntax: https://github.com/jenssegers/date#usage

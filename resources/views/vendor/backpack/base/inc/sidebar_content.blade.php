@@ -6,6 +6,10 @@
 	<li><a href="{{ backpack_url('order') }}"><i class="fa fa-envelope-open"></i> <span>Order</span></a></li>
 @endif
 
+@if (backpack_user()->isAkuntan())
+	<li><a href="{{ backpack_url('manual_invoice') }}"><i class="fa fa-envelope-open"></i> <span>Manual Invoice</span></a></li>
+@endif
+
 @if (backpack_user()->isManager())
 	<li><a href="{{ route('report') }}"><i class="fa fa-newspaper-o"></i> <span>Report</span></a></li>
 @endif

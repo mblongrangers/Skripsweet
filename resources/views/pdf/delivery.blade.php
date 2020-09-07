@@ -15,7 +15,7 @@
 				<p>Jln. Prabu Kian Santang No. 169 A <br>Sangiang, Kota Tangerang</p>
 				<p>(+621) 555-1234</p>
 			</address>
-			<span><img alt="" src="{{ asset('images\1.png') }}" height="30%" width="30%"><input type="file" accept="image/*"></span>
+			<span><img alt="" src="{{ asset('images\anugrah_maju_sentosa_pt.png') }}" height="75%" width="75%"><input type="file" accept="image/*"></span>
 		</header>
 		<article>
 			<address contenteditable>

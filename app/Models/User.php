@@ -42,6 +42,11 @@ class User extends Model
         return $this->role->id == 3;
     }
     
+    public function isAkuntan()
+    {
+        return $this->role->id == 4;
+    }
+
     // protected $hidden = [];
     // protected $dates = [];
 

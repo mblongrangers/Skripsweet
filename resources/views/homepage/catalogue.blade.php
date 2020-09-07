@@ -3,7 +3,7 @@
 @section('content')
 <!-- Title Page -->
 <!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({{ asset('images/banner.png') }});">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url({{ asset('images/steel_tubes.jpg') }});">
 	</section>
 
 	<!-- Content page -->
@@ -13,7 +13,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
 					<div class="leftbar p-r-20 p-r-0-sm">
 						<!--  -->
-						<h4 class="m-text14 p-b-7">
+						{{-- <h4 class="m-text14 p-b-7">
 							Categories
 						</h4>
 
@@ -35,7 +35,7 @@
 									Home Care
 								</a>
 							</li>
-						</ul>
+						</ul> --}}
 
 						<!--  -->
 						<h4 class="m-text14 p-b-32">

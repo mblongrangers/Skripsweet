@@ -84,14 +84,14 @@
   <section class="slide1">
     <div class="wrap-slick1">
       <div class="slick1">
-        <div class="item-slick1 item1-slick1" style="background-image: url({{ asset('images/888888.png') }});">
+        <div class="item-slick1 item1-slick1" style="background-image: url({{ asset('images/11.jpg') }});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-              <font color="gold"> Lubricant For Champions </font>
+              <font color="yellow"> SPECIALIST </font>
             </span>
 
             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-              New Variants
+             <font color="white"> Plastic Materials </font>
             </h2>
 
             <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
@@ -103,14 +103,14 @@
           </div>
         </div>
 
-        <div class="item-slick1 item2-slick1" style="background-image: url({{ asset('images/9.png') }});">
+        <div class="item-slick1 item2-slick1" style="background-image: url({{ asset('images/111.jpg') }});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-             <font color="red"> New Variants </font>
+             <font color="yellow"> SPECIALIST </font>
             </span>
 
             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-              Spray Paint & Premium Spray Paint
+              SEMI-FINISHED PRODUCTS
             </h2>
 
             <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
@@ -122,14 +122,14 @@
           </div>
         </div>
 
-        <div class="item-slick1 item3-slick1" style="background-image: url({{ asset('images/11.png') }});">
+        <div class="item-slick1 item3-slick1" style="background-image: url({{ asset('images/1111.jpg') }});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-             <font color="yellow"> Check Our Catalogue </font>
+             <font color="yellow"> SPECIALIST </font>
             </span>
 
             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-               Home Care Solution
+               Aluminium Materials
             </h2>
 
             <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">
@@ -152,26 +152,25 @@
         <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
           <!-- block1 -->
           <div class="block1 hov-img-zoom pos-relative m-b-30">
-            <img src="{{ asset('images/44.png') }}" alt="IMG-BENNER">
+            <img src="{{ asset('images/0000.png') }}" alt="IMG-BENNER">
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
-              {{-- <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4"> --}}
-                Freshener
+              <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                Kaleng Printing
               </a>
             </div>
           </div>
 
           <!-- block1 -->
           <div class="block1 hov-img-zoom pos-relative m-b-30">
-            <img src="{{ asset('images/7.png') }}" alt="IMG">
+            <img src="{{ asset('images/00000.png') }}" alt="IMG">
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
               <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                 Order Now
               </a>
-              <button class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">Kacamata</button>
             </div>
           </div>
         </div>
@@ -179,24 +178,24 @@
         <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
           <!-- block1 -->
           <div class="block1 hov-img-zoom pos-relative m-b-30">
-            <img src="{{ asset('images/3.png') }}" alt="IMG-BENNER">
+            <img src="{{ asset('images/1.jpg') }}" alt="IMG-BENNER">
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
               <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                All Spray Paint
+                Metal Materials
               </a>
             </div>
           </div>
 
           <!-- block1 -->
           <div class="block1 hov-img-zoom pos-relative m-b-30">
-            <img src="{{ asset('images/5.png') }}" alt="IMG-BENNER">
+            <img src="{{ asset('images/03.jpeg') }}" alt="IMG-BENNER">
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
               <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                Automotive Care
+                Plastic Materials
               </a>
             </div>
           </div>
@@ -205,30 +204,30 @@
         <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
           <!-- block1 -->
           <div class="block1 hov-img-zoom pos-relative m-b-30">
-            <img src="{{ asset('images/2.png') }}" alt="IMG">
+            <img src="{{ asset('images/0.jpg') }}" alt="IMG">
 
             <div class="block1-wrapbtn w-size2">
               <!-- Button -->
               <a href="{{ route('catalogue') }}" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                Chain Lube
+                Bahan Baku
               </a>
             </div>
           </div>
 
           <!-- block2 -->
           <div class="block2 wrap-pic-w pos-relative m-b-30">
-            <img src="{{ asset('images/6.png') }}" alt="IMG">
+            <img src="{{ asset('images/0000000.png') }}" alt="IMG">
 
             <div class="block2-content sizefull ab-t-l flex-col-c-m">
               <h4 class="m-text4 t-center w-size3 p-b-8">
-                Sign up & get comfortable when driving
+                {{-- Sign up & get comfortable when driving --}}
               </h4>
 
               <p class="t-center w-size4">
-                <font color="black"> Be the frist to know about the latest product </font>
+                {{-- <font color="black"> Be the frist to know about the latest product </font> --}}
               </p>
 
-              <div class="w-size2 p-t-25">
+              <div class="block1-wrapbtn w-size2">
                 <!-- Button -->
                 <a href="{{ route('register') }}" class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
                   Sign Up

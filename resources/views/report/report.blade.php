@@ -1,57 +1,68 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Report</title>
-		<link rel="stylesheet" href="{{ asset('pdf\style.css') }}">
-		<link rel="license" href="http://www.opensource.org/licenses/mit-license/">
-		<script src="{{ asset('pdf\script.js') }}"></script>
-	</head>
-	<body>
-		<header>
-			<h1>Report</h1>
-			<table class="inventory">
-				<thead>
-					<tr>
-						<th><span contenteditable>Name</span></th>
-						<th><span contenteditable>Price</span></th>
-						<th><span contenteditable>Quantity</span></th>
-						<th><span contenteditable>SubTotal</span></th>
-					</tr>
-				</thead>
-				<tbody>
-					@php
-						$sum = 0;
-					@endphp
-					@forelse ($orders as $order)
-						@foreach ($order->cart->products as $product)
+@extends('backpack::layout')
+
+@section('before_styles')	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+@endsection
+
+@section('content')	
+	<div class="row">
+
+		<div class="col-md-12">
+			<div class="box">
+				<div class="box-body">
+					{!! $chart->container() !!}
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-12">
+			<div class="box">
+				<div class="box-body">
+					<table class="table">
+						<thead>
 							<tr>
-								<td><span contenteditable>{{ $product->name }}</span></td>
-								<td><span data-prefix>Rp {{ $product->price }}</span></td>
-								<td><span contenteditable></span>{{ $product->pivot->quantity }}</td>
-								<td><span data-prefix>Rp {{ $product->pivot->quantity * $product->price }}</span></td>
+								<th>Nama</th>
+								<th>Produk</th>
+								<th>Kuantitas</th>
+								<th>Total Harga</th>
+								<th>Tanggal Verifikasi</th>
 							</tr>
-							@php
-								$sum += $product->pivot->quantity * $product->price;
-							@endphp
-						@endforeach
-						@empty
-						<tr>
-							<td colspan="4">No Data show</td>
-						</tr>
-					@endforelse
-				</tbody>
-			</table>
-			<table class="balance">
-				<tr>
-					<th><span contenteditable>Total</span></th>
-					<td><span data-prefix>Rp. {{ $sum }}</span></td>
-				</tr>
-				<tr>
-					<th><span contenteditable>Date</span></th>
-					<td><span>{{ date('F Y') }}</span></td>
-				</tr>
-			</table>
-		</article>
-	</body>
-</html>
+						</thead>
+
+						<tbody>
+							@foreach ($payments as $payment)
+								<tr>
+									<td>{{ $payment->sender }}</td>
+									<td>{{ $payment->cart->products->first()->name }}</td>
+									<td>{{ number_format($payment->cart->products->first()->pivot->quantity) }}</td>
+									<td>{{ number_format($payment->cart->products->first()->pivot->quantity * $payment->cart->products->first()->pivot->price) }}</td>
+									<td>{{ $payment->updated_at->format('d F Y') }}</td>
+								</tr>
+
+								@foreach ($payment->cart->products as $i => $product)
+									@if ($i != 0)
+										<tr>
+											<td></td>
+											<td>{{ $product->name }}</td>
+											<td>{{ number_format($product->pivot->quantity) }}</td>
+											<td>{{ number_format($product->pivot->quantity * $product->pivot->price) }}</td>
+											<td>{{ $payment->updated_at->format('d F Y') }}</td>
+										</tr>
+									@endif
+									@php
+										++$i;
+									@endphp
+								@endforeach
+							@endforeach
+						</tbody>
+					</table>					
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12">
+			<a class="btn btn-primary" href="{{ route('report.pdf') }}">Export to PDF</a>
+		</div>
+	</div>
+
+	{!! $chart->script() !!}
+@endsection	

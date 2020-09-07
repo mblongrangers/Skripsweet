@@ -23,5 +23,9 @@ class RolesSeeder extends Seeder
         Role::create([
         	'name' => 'Direktur Operasional'
         ]);
+
+        Role::create([
+            'name' => 'Akuntan'
+        ]);
     }
 }

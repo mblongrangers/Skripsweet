@@ -20,8 +20,23 @@ class Payment extends Model
 	{
 		return $this->belongsTo(Customer::class);
 	}
+	
 	public function cart()
 	{
 		return $this->belongsTo(Cart::class);
+	}
+
+	public function scopeTodayVerification($builder)
+	{
+		return $this->where('updated_at', 'like', now()->toDateString() . '%')
+			->where('status', 'acc')
+			->with(['cart.products']);
+	}
+
+	public function scopeVerificationAt($builder, $datetime)
+	{
+		return $this->where('updated_at', 'like', $datetime . '%')
+			->where('status', 'acc')
+			->with(['cart.products']);
 	}
 }

@@ -1,0 +1,1 @@
+<a href="{{ route('manual-invoice.product', $entry) }}" class="btn btn-info btn-xs">Tambah Produk</a>

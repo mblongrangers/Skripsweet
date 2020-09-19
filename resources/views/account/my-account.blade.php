@@ -117,7 +117,7 @@
                             @endif
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" maxlength="45" value="{{ old('address') }}" >
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" minlength="5" maxlength="45" placeholder="Your Address" maxlength="45" value="{{ old('address') }}" >
                                 {{-- <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('address') ? ' is-invalid' : ''}}" name="address" placeholder="Your Address" value="{{ !is_null($current) ? $current->address : ''}}" > --}}
                             </div>
                             {{-- {!! $errors->first('address', '<span class="invalid-feedback">:message</span>') !!} --}}
@@ -128,7 +128,7 @@
                             @endif
 
                             <div class="bo4 of-hidden size15 m-b-20">
-                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" placeholder="Your Phone" value="{{ old('phone') }}">
+                                <input type="text" class="sizefull s-text7 p-l-22 p-r-22 {{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" minlength="10" maxlength="12" placeholder="Your Phone" value="{{ old('phone') }}">
                             </div>
                             {{-- {!! $errors->first('phone', '<span class="invalid-feedback">:message</span>') !!} --}}
                             @if ($errors->has('phone'))

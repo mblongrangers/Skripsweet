@@ -127,8 +127,9 @@
 											<!-- Button -->
 											{{-- <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4"> --}}
 											{{-- <div> --}}
-												
-											<button type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" data-toggle="modal" data-target="#div{{ $product->id }}modal">Pesan</button>
+											@if ($product->quantity > 0)
+												<button type="button" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" data-toggle="modal" data-target="#div{{ $product->id }}modal">Pesan</button>
+											@endif
 											@include('partials._modal', [ 'product' => $product ])
 										</div>
 											{{-- </button> --}}

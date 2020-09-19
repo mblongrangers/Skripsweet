@@ -15,15 +15,18 @@
           <form action="{{ route('add-to-cart') }}" method="POST">
             @csrf
             <div class="col-md-8">
-              <p>Qty : <input type="number" class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}" name="qty" min="1" maxlength="100" id="qty_{{ $product->id }}" value="1"></p>
+              <p>Qty : <input type="number" class="form-control {{ $errors->has('qty') ? 'is-invalid' : ''}}" name="qty" min="1" max="{{ $product->quantity }}" id="qty_{{ $product->id }}" value="1"></p>
               {!! $errors->first('qty', '<span class="invalid-feedback">:message</span>') !!}
+              <p>Stock : {{ number_format($product->quantity) }}</p>
               <p>Price : Rp. {{ number_format($product->price) }}</p>
               <p>Sub Total : <strong id="sub_total_{{ $product->id }}"></strong></p>
               <input type="hidden" name="product_id" value="{{ $product->id }}">
             </div>
           </div>
-          <button type="submit" button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 class="btn btn-primary pull-right ">Add To Chart</button>
-          </form>
+          @if ($product->quantity > 0)
+            <button type="submit" button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 class="btn btn-primary pull-right ">Add To Chart</button>
+            </form>
+          @endif
       </div>
     </div>
   </div>

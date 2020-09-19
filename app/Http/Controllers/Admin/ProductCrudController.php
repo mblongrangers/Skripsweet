@@ -46,9 +46,15 @@ class ProductCrudController extends CrudController
            'type' => 'number',
         ]);
 
+        $this->crud->addField([
+           'name' => 'quantity',
+           'label' => 'Quantity',
+           'type' => 'number',
+        ]);
+
         $this->crud->addColumn([
-        'name' => 'id',
-        'label' => 'ID Barang'
+          'name' => 'id',
+          'label' => 'ID Barang'
         ]);
 
         $this->crud->addColumn([
@@ -73,6 +79,12 @@ class ProductCrudController extends CrudController
            'name' => 'price',
            'label' => 'Harga',
            'type' => 'number',
+        ]);
+
+        $this->crud->addColumn([
+          'name' => 'quantity',
+          'label' => 'Quantity',
+          'type' => 'number',
         ]);
 
         // $this->crud->addField([

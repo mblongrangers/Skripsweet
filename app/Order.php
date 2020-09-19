@@ -23,10 +23,12 @@ class Order extends Model
 	{
 		return $this->belongsTo(Customer::class);
 	}
+
 	public function cart()
 	{
 		return $this->belongsTo(Cart::class);
 	}
+
 	public function status()
 	{
 		$status = 'Sudah Dibayar';
@@ -44,6 +46,7 @@ class Order extends Model
 	{
 		return $this->belongsTo(Address::class);
 	}
+
 	public function bayarable()
 	{
 		return is_null($this->payment)  or ($this->payment->status == 'decline');
@@ -53,6 +56,7 @@ class Order extends Model
 	{
 		return $this->belongsTo(Payment::class);
 	}
+
 	public static function telahDibayar()
 	{
 		$begin 	= Carbon::parse("first day of " . date('F Y'));
@@ -64,5 +68,21 @@ class Order extends Model
 			}
 		}
 		return collect($return);
+	}
+
+	public function subTotal()
+	{
+		$sum = 0;
+
+		foreach ($this->cart->products as $product) {
+			$sum += ($product->pivot->price * $product->pivot->quantity);
+		}
+
+		return number_format($sum);
+	}
+
+	public function orderNumber()
+	{
+		return '#' . $this->id;
 	}
 }

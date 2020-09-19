@@ -24,10 +24,26 @@ class OrderCrudController extends CrudController
         $this->crud->denyAccess(['create', 'update']);
         $this->crud->addColumn(
             [
+               'name' => "order_number",
+               'label' => "Order Number",
+               'type' => "model_function",
+               'function_name' => 'orderNumber'
+            ]
+        );
+        $this->crud->addColumn(
+            [
                'name' => "payment_id",
                'label' => "Status Pembayaran",
                'type' => "model_function",
                'function_name' => 'status'
+            ]
+        );
+        $this->crud->addColumn(
+            [
+               'name' => "total_pembayaran",
+               'label' => "Total Pembayaran",
+               'type' => "model_function",
+               'function_name' => 'subTotal'
             ]
         );
         $this->crud->addColumn(

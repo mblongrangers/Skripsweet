@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -10,6 +11,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/tutorial', function () {
     return view('homepage.tutorial');
 })->name('tutorial');

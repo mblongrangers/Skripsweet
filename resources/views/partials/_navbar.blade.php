@@ -2,8 +2,8 @@
 
             <div class="wrap_header">
                 <a href="{{ route('index') }}" class="logo">
-                    <img src="{{asset('images/anugrah_maju_sentosa_pt.png')}} "class="d-inline-block align-left">
-                    <h8 > PT ANUGRAH MAJU SENTOSA</h8>
+                    <img src="{{asset('images/KCA.png')}} "class="d-inline-block align-left">
+                    {{-- <h8 > PT Kharisma Cahaya Abadi</h8> --}}
                 </a>
 
                 <div class="wrap_menu">

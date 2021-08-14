@@ -84,14 +84,14 @@
   <section class="slide1">
     <div class="wrap-slick1">
       <div class="slick1">
-        <div class="item-slick1 item1-slick1" style="background-image: url({{ asset('images/11.jpg') }});">
+        <div class="item-slick1 item1-slick1" style="background-image: url({{ asset('images/33333.jpg') }});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
-              <font color="yellow"> SPECIALIST </font>
+              <font color="black"> SPECIALIST </font>
             </span>
 
             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
-             <font color="white"> Plastic Materials </font>
+             <font color="yellow"> Frozen Meat </font>
             </h2>
 
             <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
@@ -103,14 +103,14 @@
           </div>
         </div>
 
-        <div class="item-slick1 item2-slick1" style="background-image: url({{ asset('images/111.jpg') }});">
+        <div class="item-slick1 item2-slick1" style="background-image: url({{ asset('images/3333.jpg') }});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rollIn">
-             <font color="yellow"> SPECIALIST </font>
+             <font color="black"> SPECIALIST </font>
             </span>
 
             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="lightSpeedIn">
-              SEMI-FINISHED PRODUCTS
+             <font color="yellow"> FROZEN CHICKEN </font>
             </h2>
 
             <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="slideInUp">
@@ -122,14 +122,14 @@
           </div>
         </div>
 
-        <div class="item-slick1 item3-slick1" style="background-image: url({{ asset('images/1111.jpg') }});">
+        <div class="item-slick1 item3-slick1" style="background-image: url({{ asset('images/333.jpg') }});">
           <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
             <span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="rotateInDownLeft">
-             <font color="yellow"> SPECIALIST </font>
+             <font color="black"> SPECIALIST </font>
             </span>
 
             <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="rotateInUpRight">
-               Aluminium Materials
+               <font color="yellow"> FROZEN FOOD </font>
             </h2>
 
             <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="rotateIn">

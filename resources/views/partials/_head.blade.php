@@ -5,7 +5,7 @@
     <meta name="author" content="">
     <!-- <link rel="icon" href="../../../../favicon.ico"> -->
 
-    <title>PT Anugrah Maju Sentosa</title>
+    <title>PT Kharisma Cahaya Abadi</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">

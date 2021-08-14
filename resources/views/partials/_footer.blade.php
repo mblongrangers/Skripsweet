@@ -139,7 +139,7 @@
 			</div>
 		</div> --}}
 			<div class="t-center s-text8 p-t-20" >
-				Copyright PT Anugrah Maju Sentosa © 2020 All rights reserved. 
+				Copyright PT Kharisma Cahaya Abadi © 2021 All rights reserved. 
 			</div>
 			
 			<!-- Back to top -->

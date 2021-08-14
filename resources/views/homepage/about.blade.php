@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="{{asset('images/4.png')}}" alt="IMG-ABOUT">
+						<img src="{{asset('images/KCA.png')}}" alt="IMG-ABOUT">
 					</div>
 				</div>
 				<div class="col-md-8 p-b-30">
@@ -15,7 +15,7 @@
 						Our story
 					</h3>
 					<p class="class="lead" style="text-align: justify;"> <font face="times new roman">
-						PT Anugrah Maju Sentosa yang berdiri pada tahun 2014 adalah perusahan yang bergerak dibidang PLASTIC MATERIALS: PRODUCTS, SEMI-FINISHED PRODUCTS (MANUFACTURE, TRADE).
+						PT. Kharisma cahaya abadi didirikan pada tahun 2019 yang beralamat di jl. Daan mogot raya km.21 komplek pergudangan era prima blok B No.5 Tangerang. Merupakan perusahaan importir dan distributor yang menyediakan berbagai produk beku seperti daging sapi, daging ayam, daging kerbau, hasil laut, kentang, dan lain-lain.
 					</p> </font>
 						<br>
 					<div class="bo13 p-l-29 m-l-9 p-b-10">
